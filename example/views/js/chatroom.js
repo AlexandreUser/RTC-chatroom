@@ -1,16 +1,22 @@
 (function connect(){
     let socket = io.connect('http://localhost:3000')
-    socket.emit('create', 'room1');
 
     let username = document.querySelector('#username')
     let usernameBtn = document.querySelector('#usernameBtn')
     let curUsername = document.querySelector('.card-header')
     
+    let room = document.querySelector('#room')
+    let roomBtn = document.querySelector('#roomBtn')
+
+
     let message = document.querySelector('#message')
     let messageBtn = document.querySelector('#messageBtn')
     let messageList = document.querySelector('#message-list')
     
-  
+    roomBtn.addEventListener('click',e=>{
+        socket.emit('create', room.value);
+
+    })
     
 
     let info = document.querySelector('.info')
@@ -38,7 +44,7 @@
     })
     messageBtn.addEventListener('click', e => {
         console.log(message.value)
-        socket.emit('new_message', {message: message.value})
+        socket.emit('new_message', {message: message.value,room:room.value})
         message.value = ''
     })
     

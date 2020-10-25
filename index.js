@@ -31,8 +31,9 @@ io.on('connection', socket => {
 
     //handle the new message event
     socket.on('new_message', data => {
+        console.log(data)
         console.log("new message")
-        io.sockets.to("room1").emit('receive_message', {message: data.message, username: socket.username})
+        io.sockets.to(data.room).emit('receive_message', {message: data.message, username: socket.username})
     })
     socket.on('typing', data => {
         socket.broadcast.emit('typing', {username: socket.username})
