@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-realtime-owlclock-api",
+  "version": "1.0.0",
+  "description": "A RTC system using node to send questions to two or more different peers with a stablished connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "RTC",
+    "node",
+    "mongoose",
+    "express"
+  ],
+  "author": "Alexandre Vieira",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.10",
+    "nodemon": "^2.0.6",
+    "socket.io": "^2.3.0",
+    "wrtc": "^0.4.6"
+  }
+}
