@@ -24,7 +24,10 @@
     message.addEventListener('keypress', e => {
         socket.emit('typing')
     })
-    
+    socket.on("event_triggered",data=>{
+        info.textContent = data.username + " Global Event triggered"
+        setTimeout(() => {info.textContent=''}, 5000)
+    })
     socket.on('typing', data => {
         info.textContent = data.username + " is typing..."
         setTimeout(() => {info.textContent=''}, 5000)
